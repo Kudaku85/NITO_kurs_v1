@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-//Vi oppretter en klasse for billetter
+//Vi oppretter en klasse for billetter med private variabler
 class Ticket {
     private static int numberOfTickets;
     private String passengerName;
@@ -21,34 +21,7 @@ class Ticket {
         this.timeToDeparture = timeToDeparture;
     }
 
-    public static int getNumberOfTickets() {
-        return numberOfTickets;
-    }
-
-    public static void setNumberOfTickets(int numberOfTickets) {
-        Ticket.numberOfTickets = numberOfTickets;
-    }
-
-    //Lager en metode som henter ut ticketInfo. Merk at den er String, så vi må returnere en String til slutt.
-    public String ticketInfo() {
-        String output = "\nThe passenger is named " + passengerName + ".\n";
-        output += "They are travelling to " + destination + ".\n";
-        output += "They leave in " + timeToDeparture + " minutes. ";
-        if (timeToDeparture < 0) {
-            output += "They're not gonna make it. \n";
-        } else if (timeToDeparture < 60) {
-            output += "Time is running short. \n";
-        } else {
-            output += "They should be fine. \n";
-        }
-        return output;
-    }
-
-    @Override
-    public String toString() {
-        return ticketInfo();
-    }
-
+    //Vi lager getters og setters for alle private variabler
     public String getPassengerName() {
         return passengerName;
     }
@@ -79,6 +52,35 @@ class Ticket {
 
     public void setTimeToDeparture(int timeToDeparture) {
         this.timeToDeparture = timeToDeparture;
+    }
+
+    public static int getNumberOfTickets() {
+        return numberOfTickets;
+    }
+
+    public static void setNumberOfTickets(int numberOfTickets) {
+        Ticket.numberOfTickets = numberOfTickets;
+    }
+
+    //Lager en metode som henter ut ticketInfo. Merk at den er String, så vi må returnere en String til slutt.
+    public String ticketInfo() {
+        String output = "\nThe passenger is named " + passengerName + ".\n";
+        output += "They are travelling to " + destination + ".\n";
+        output += "They leave in " + timeToDeparture + " minutes. ";
+        if (timeToDeparture < 0) {
+            output += "They're not gonna make it. \n";
+        } else if (timeToDeparture < 60) {
+            output += "Time is running short. \n";
+        } else {
+            output += "They should be fine. \n";
+        }
+        return output;
+    }
+
+    //Vi lager også en toString-metode, som bruker metoden ticketInfo over
+    @Override
+    public String toString() {
+        return ticketInfo();
     }
 }
 
