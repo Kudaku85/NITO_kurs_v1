@@ -25,11 +25,13 @@ public class For_Loops {
         }
 
         System.out.println("Vi kan også legge en for loop inne i en annen for loop. Kutymen da er at loop nr 2 bruker int j (første bokstav etter i)");
-        for (int i = 0; i < 10; ++i) {
-            for (int j = 0; j < i; j++){
-                System.out.print("*");
+        for (int i = 1; i <= 5; ++i) {
+
+            // inner loop to print the numbers
+            for (int j = 1; j <= i; ++j) {
+                System.out.print(j + " ");
             }
-            System.out.println();
+            System.out.println(); //Legger inn et line break etter hver serie med tall
         }
     }
 }
